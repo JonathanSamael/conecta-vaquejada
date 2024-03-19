@@ -287,6 +287,34 @@ router.post('/alterarStatus/:idSenha/:idVaquejada', [requerAutenticacao], upload
   }
 });
 
+// ADICIONAR SOLICTAÇÃO DE CADASTRO DE VAQUEJADA:
+router.post('/solicitacao', async (req, res) => {
+  try {
+    const { nomeCompleto, cidade, estado, nomeVaquejada, numeroContato } = req.body;
+
+    if (!nomeCompleto || !cidade || !estado || !nomeVaquejada || !numeroContato) {
+      throw new Error("Valores não adicionados")
+    }
+
+    const [id] = await knex.table('solicitacoes').insert({
+      nomeCompleto: nomeCompleto,
+      cidade: cidade,
+      estado: estado,
+      nomeVaquejada: nomeVaquejada,
+      numeroContato: numeroContato
+    });
+
+    if (!id) {
+      throw new Error("Não adicionado")
+    }
+
+    res.redirect("/");
+
+  } catch (error) {
+    res.redirect(`/adicionar-vaquejada?ERRO=${error.message}`);
+  }
+})
+
 // ROTAS DE AUTENTICAÇÃO:
 
 // ROTA DE LOGIN;

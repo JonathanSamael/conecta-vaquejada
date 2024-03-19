@@ -36,7 +36,9 @@ router.get('/vaquejadas', async (req, res) => {
 
 // PAGIANA QUE FAZ A SOLICITAÇÃO PARA ADICIONAR UMA VAQUEJADA;
 router.get('/adicionar-vaquejada', (req, res) => {
-  res.render('adicionar-vaquejada');
+  let erro;
+  if (req.query.ERRO) erro = req.query.ERRO;
+  res.render('adicionar-vaquejada', { erro });
 });
 
 // PAGINA DE DETALHES/COMPRA DA VAQUEJADA, PASSANDO O OBJETO DE UMA VAQUEJADA SELECIONADA PELO ID;
