@@ -1,52 +1,109 @@
 :root {
-     --cor-botão: #0671EF;
-     --cor-branco: #FFFFFF;
-     --cor-preta: #000000;
-     --box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25)
+  --cor-botão: #0671ef;
+  --cor-branco: #ffffff;
+  --cor-preta: #000000;
+  --box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
 }
 
 body {
-     padding: 0;
-     margin: 0;
-     background-image: url('/images/background/background_imagem.png');
-     background-repeat: no-repeat;
-     background-size: cover;
-     background-position: top center;
+  height: 100vh;
+  padding: 0;
+  margin: 0;
+  background-image: url("/images/background/background_imagem.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: top center;
 }
 
+.center-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 60vh;
+  margin-left: 250px;
+}
+
+.center-container .conteudo_centralizado {
+  width: 400px;
+}
 
 #vaquejadas_online_button {
-     width: max-content;
-     margin-left: 445px;
-     color: var(--cor-branco);
-}
-
-#texto_principal {
-     width: 438px;
-     height: 211px;
-}
-
-.conteudo_centralizado {
-     width: 450px;
-     height: auto;
-     margin-left: 423px;
-     margin-top: 150px;
+  width: max-content;
+  color: var(--cor-branco);
+  margin: 12px 20px;
 }
 
 /* Mobile */
-@media (max-width: 480px) {}
+@media (max-width: 480px) {
+  body {
+    background-size: inherit;
+  }
+
+  .center-container {
+    margin-left: 20px;
+  }
+  .center-container .conteudo_centralizado {
+    width: 250px;
+  }
+
+  #vaquejadas_online_button {
+    font-size: 16px;
+  }
+}
 
 /* Extra small devices */
-@media (min-width: 481px) and (max-width: 767px) {}
+@media (min-width: 481px) and (max-width: 767px) {
+  body {
+    background-size: auto;
+  }
+  .center-container {
+    margin-left: 20px;
+  }
+
+  .center-container .conteudo_centralizado {
+    width: 270px;
+  }
+
+  #vaquejadas_online_button {
+    font-size: 16px;
+  }
+}
 
 /* Small tablets */
-@media (min-width: 768px) and (max-width: 991px) {}
+@media (min-width: 768px) and (max-width: 991px) {
+     header {
+          width: 500px;
+     }
+  body {
+    background-size: cover;
+  }
+  .center-container {
+    margin-left: 60px;
+  }
+
+  .center-container .conteudo_centralizado {
+    width: 330px;
+  }
+}
 
 /* Large tablets/laptops */
-@media (min-width: 992px) and (max-width: 1199px) {}
+@media (min-width: 992px) and (max-width: 1199px) {
+  body {
+    background-size: inherit;
+  }
+
+  .center-container {
+    margin-left: 100px;
+  }
+}
 
 /* Desktops */
-@media (min-width: 1200px) and (max-width: 1919px) {}
+@media (min-width: 1200px) and (max-width: 1919px) {
+  body {
+    background-size: auto;
+  }
+}
 
 /* Extra large screens */
-@media (min-width: 1920px) {}
+@media (min-width: 1920px) {
+}
