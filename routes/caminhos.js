@@ -270,4 +270,10 @@ router.get('/impressao/:idVaquejada', async (req, res) => {
 
 });
 
+// PÁGINA DE SÓLICITAÇÕES:
+router.get("/solicitacoes", async (req, res) => {
+  const solicitacoes = await knex.select().from('solicitacoes').orderBy('dataDasolicitacao', 'desc');
+  res.render('solicitacoes.ejs', { solicitacoes });
+});
+
 module.exports = router;
