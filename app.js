@@ -17,7 +17,7 @@ var app = express();
 app.use(cookieSession({
   name: 'conectvaquejadas_session', // nome do cookie no navegador
   keys: ['chave_secreta_para_criptografia'], // chave necessária para criptografia
-  maxAge: 1 * 60 * 60 * 1000, 
+  maxAge: 1 * 60 * 60 * 1000,
 }));
 
 // view engine setup
@@ -49,7 +49,7 @@ app.use(function (err, req, res, next) {
 
   // render the error page
   res.status(err.status || 500);
-  res.render('error'); 
+  res.render('error');
 });
 
 module.exports = app;

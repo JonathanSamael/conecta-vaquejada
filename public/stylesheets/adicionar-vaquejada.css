@@ -1,20 +1,19 @@
-.texto-principal {
+.main-text-img {
      width: 334px;
      height: 161px;
      margin-left: 150px;
 }
 
-.inputs-formularios {
+.inputs-forms {
      height: 37px;
      font-size: 19px;
      background: rgba(255, 255, 255, 0.70);
      box-shadow: rgba(255, 255, 255, 0.70);
 }
 
-#nome-completo {
-     width: 450px;
-}
-
 .container-fluid {
-     margin-top: 160px;
+     display: flex;
+     flex-direction: column;
+     justify-content: center;
+     height: 90vh;
 }

@@ -54,19 +54,24 @@
                     <!-- coluna da imagem -->
                     <div class="col-5">
 
-                         <img src="/images/textos/texto.png" alt="" class="texto-principal">
+                         <img src="/images/textos/texto.png" alt="" class="main-text-img">
 
                     </div>
 
-                    <div class="col-7 formulario">
+                    <div class="col-7">
 
                          <!-- Inicio Formulario -->
-                         <form method="POST">
+                         <form method="POST" action="/operations/solicitacao">
 
-                              <div class="form-group texto">
+                              <div class="form-row">
 
-                                   <label for="nome-completo">NOME COMPLETO:</label>
-                                   <input type="text" class="form-control inputs-formularios" id="nome-completo">
+                                   <div class="form-group col-6 texto">
+
+                                        <label for="nomeCompleto">NOME COMPLETO:</label>
+                                        <input type="text" class="form-control inputs-forms" id="nomeCompleto"
+                                             name="nomeCompleto">
+
+                                   </div>
 
                               </div>
 
@@ -75,14 +80,14 @@
                                    <div class="form-group col-4 texto">
 
                                         <label for="cidade">CIDADE:</label>
-                                        <input type="text" class="form-control inputs-formularios" id="cidade">
+                                        <input type="text" class="form-control inputs-forms" id="cidade" name="cidade">
 
                                    </div>
 
                                    <div class="form-group col-4 texto">
 
                                         <label for="estado">ESTADO:</label>
-                                        <input type="text" class="form-control inputs-formularios" id="estado">
+                                        <input type="text" class="form-control inputs-forms" id="estado" name="estado">
 
                                    </div>
                               </div>
@@ -91,16 +96,24 @@
 
                                    <div class="form-group col-4 texto">
 
-                                        <label for="cidade">NOME DA VAQUEJADA:</label>
-                                        <input type="text" class="form-control inputs-formularios" id="cidade">
+                                        <label for="nomeVaquejada">NOME DA VAQUEJADA:</label>
+                                        <input type="text" class="form-control inputs-forms" id="nomeVaquejada"
+                                             name="nomeVaquejada">
 
                                    </div>
 
                                    <div class="form-group col-4 texto">
 
-                                        <label for="estado">Nº CONTATO:</label>
-                                        <input type="text" class="form-control inputs-formularios" id="estado">
+                                        <label for="numeroContato">Nº CONTATO:</label>
+                                        <input type="text" class="form-control inputs-forms" id="numeroContato"
+                                             name="numeroContato">
 
+                                   </div>
+                              </div>
+
+                              <div class="form-row">
+                                   <div class="form-group col">
+                                        <input type="submit" class="btn mr-5 botão" value="ENVIAR SOLICITAÇÃO">
                                    </div>
                               </div>
 
@@ -115,17 +128,25 @@
 
      </section>
 
-     <!-- JavaScript (Opcional) -->
-     <!-- jQuery primeiro, depois Popper.js, depois Bootstrap JS -->
-     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-          integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-          crossorigin="anonymous"></script>
-     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
-          integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
-          crossorigin="anonymous"></script>
-     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
-          integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
-          crossorigin="anonymous"></script>
+
+
+     <% if (erro) { %>
+          <script>
+               alert("<%= erro %>")
+          </script>
+          <% } %>
+
+               <!-- JavaScript (Opcional) -->
+               <!-- jQuery primeiro, depois Popper.js, depois Bootstrap JS -->
+               <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+                    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+                    crossorigin="anonymous"></script>
+               <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+                    integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+                    crossorigin="anonymous"></script>
+               <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
+                    integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+                    crossorigin="anonymous"></script>
 </body>
 
 </html>
