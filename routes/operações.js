@@ -313,7 +313,7 @@ router.post('/solicitacao', async (req, res) => {
   } catch (error) {
     res.redirect(`/adicionar-vaquejada?ERRO=${error.message}`);
   }
-})
+});
 
 // ROTAS DE AUTENTICAÇÃO:
 

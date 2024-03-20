@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+     <!-- Meta tags Obrigatórias -->
+     <meta charset="utf-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+     <!-- Bootstrap CSS -->
+     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+          integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+     <!-- Bootstrap CSS -->
+     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+     <!-- CSS Básico -->
+     <link rel="stylesheet" href="/stylesheets/basico.css">
+     <!-- CSS Solicitacoes -->
+     <link rel="stylesheet" href="/stylesheets/solicitacoes.css">
+
+     <title>Adicionar vaquejada</title>
+
+</head>
+
+<body>
+
+     <header>
+
+          <!-- Navegação -->
+          <nav class="navbar navbar-expand-lg navbar-dark">
+               <a href="/adm" class="navbar-brand">
+                    <img src="/images/logos/conect_logo.png" alt="" style="margin-right: 260px;">
+               </a>
+
+               <!-- Navbar-links -->
+               <div class="collapse navbar-collapse justify-content-around">
+                    <div class="navbar-nav ml-5">
+                         <a href="/adm" class="nav-item nav-link mr-5">INICIO</a>
+                         <a href="/vaquejadasParaAdms" class="nav-item nav-link mr-5">VAQUEJADAS</a>
+                         <a href="/solicitacoes" class="nav-item nav-link mr-5">SOLICITAÇÕES</a>
+                         <a href="/operations/deslogar" class="btn mr-5 botão" style="width: 133px;">DESLOGAR</a>
+                    </div>
+               </div>
+               </div>
+               <!-- Fim do navbar links -->
+          </nav>
+          <!-- Fim da navegação -->
+
+     </header>
+
+     <main>
+          <!-- Corpo -->
+          <section class="section-centralized">
+               <% if (solicitacoes.length> 0) { %>
+
+                    <div class="container texto">
+
+                         <div class="accordion accordion-flush" id="accordionSolicitacoes">
+                              <% for (const solicitacao of solicitacoes) { %>
+                                   <div class="accordion-item">
+                                        <h2 class="accordion-header" id="cabecalho<%= solicitacao.id %>">
+                                             <button class="accordion-button collapsed" type="button"
+                                                  data-bs-toggle="collapse"
+                                                  data-bs-target="#colapso<%= solicitacao.id %>" aria-expanded="false"
+                                                  aria-controls="colapso<%= solicitacao.id %>">
+                                                  <%= solicitacao.nomeVaquejada %> - <%= solicitacao.dataDasolicitacao
+                                                            %>
+                                             </button>
+                                        </h2>
+                                        <div id="colapso<%= solicitacao.id %>" class="accordion-collapse collapse"
+                                             aria-labelledby="cabecalho<%= solicitacao.id %>"
+                                             data-bs-parent="#accordionSolicitacoes">
+                                             <div class="accordion-body">
+
+                                                  <form>
+
+                                                       <div class="form-row">
+
+                                                            <div class="form-group col-6 texto">
+
+                                                                 <label for="nomeCompleto">NOME COMPLETO:</label>
+                                                                 <input disabled type="text"
+                                                                      class="form-control inputs-forms"
+                                                                      id="nomeCompleto" name="nomeCompleto" value="<%= solicitacao.nomeCompleto %>">
+
+                                                            </div>
+
+                                                       </div>
+
+                                                       <div class="form-row">
+
+                                                            <div class="form-group col-4 texto">
+
+                                                                 <label for="cidade">CIDADE:</label>
+                                                                 <input disabled type="text" class="form-control inputs-forms"
+                                                                      id="cidade" name="cidade" value="<%= solicitacao.cidade %>">
+
+                                                            </div>
+
+                                                            <div class="form-group col-4 texto">
+
+                                                                 <label for="estado">ESTADO:</label>
+                                                                 <input disabled type="text" class="form-control inputs-forms"
+                                                                      id="estado" name="estado" value="<%= solicitacao.estado %>">
+
+                                                            </div>
+                                                       </div>
+
+                                                       <div class="form-row">
+
+                                                            <div class="form-group col-4 texto">
+
+                                                                 <label for="nomeVaquejada">NOME DA VAQUEJADA:</label>
+                                                                 <input disabled type="text" class="form-control inputs-forms"
+                                                                      id="nomeVaquejada" name="nomeVaquejada" value="<%= solicitacao.nomeVaquejada %>">
+
+                                                            </div>
+
+                                                            <div class="form-group col-4 texto">
+
+                                                                 <label for="numeroContato">Nº CONTATO:</label>
+                                                                 <input disabled type="text" class="form-control inputs-forms"
+                                                                      id="numeroContato" name="numeroContato" value="<%= solicitacao.numeroContato %>">
+
+                                                            </div>
+                                                       </div>
+                                                  </form>
+
+                                             </div>
+                                        </div>
+                                   </div>
+
+                                   <% } %>
+                         </div>
+
+                    </div>
+
+                    <% } else { %>
+                         <div class="container texto" style="text-align: center;">
+                              <small>Nenhuma solicitação no momento!</small>
+                         </div>
+                         <% } %>
+          </section>
+          <!-- Fim do Corpo -->
+     </main>
+
+
+     <!-- JavaScript (Opcional) -->
+     <!-- jQuery primeiro, depois Popper.js, depois Bootstrap JS -->
+     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+          integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+          crossorigin="anonymous"></script>
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+          integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+          crossorigin="anonymous"></script>
+     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
+          integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+          crossorigin="anonymous"></script>
+     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
+          integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p"
+          crossorigin="anonymous"></script>
+     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"
+          integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF"
+          crossorigin="anonymous"></script>
+
+</body>
+
+</html>
