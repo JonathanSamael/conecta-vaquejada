@@ -19,7 +19,7 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  height: 60vh;
+  height: 80vh;
   margin-left: 250px;
 }
 
@@ -71,9 +71,6 @@ body {
 
 /* Small tablets */
 @media (min-width: 768px) and (max-width: 991px) {
-     header {
-          width: 500px;
-     }
   body {
     background-size: cover;
   }
@@ -89,7 +86,7 @@ body {
 /* Large tablets/laptops */
 @media (min-width: 992px) and (max-width: 1199px) {
   body {
-    background-size: inherit;
+    background-size: cover;
   }
 
   .center-container {
@@ -102,8 +99,4 @@ body {
   body {
     background-size: auto;
   }
-}
-
-/* Extra large screens */
-@media (min-width: 1920px) {
 }
