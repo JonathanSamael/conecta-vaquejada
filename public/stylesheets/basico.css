@@ -6,7 +6,7 @@
   --box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
 }
 
-header .header-container{
+header .header-container {
   height: 10vh;
   display: flex;
   justify-content: center;
@@ -50,18 +50,15 @@ body {
 
 #footer {
   background-color: var(--cor-footer);
-  height: 60px;
+  height: 10vh;
 }
 
 .direito-autoral {
-  width: 677px;
   padding-top: 8px;
   color: #fff;
   font-size: 12px;
-  font-style: normal;
   font-weight: 400;
   line-height: normal;
-  margin-left: 119px;
 }
 
 .img-banner {
@@ -73,10 +70,10 @@ body {
 /* Mobile */
 @media (max-width: 480px) {
   header {
-  justify-content: start;
+    justify-content: start;
   }
 
-  header .header-container{
+  header .header-container {
     display: flex;
     justify-content: start;
     height: 7vh;
@@ -96,6 +93,8 @@ body {
     padding-top: 7vh;
     font-size: 14px;
     align-items: end;
+    position: absolute;
+    left: 300px;
   }
 
   .navbar .navbar-dark {
@@ -118,12 +117,13 @@ body {
     padding-top: 7vh;
     font-size: 14px;
     align-items: end;
+    position: absolute;
+    left: 250px;
   }
 }
 
 /* Small tablets */
 @media (min-width: 768px) and (max-width: 991px) {
-
   header .navbar-nav {
     align-content: center;
   }
@@ -133,9 +133,4 @@ body {
     font-size: 14px;
     align-items: end;
   }
-
-  
 }
-
-
-
