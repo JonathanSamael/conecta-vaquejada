@@ -6,7 +6,7 @@
 }
 
 body {
-  height: 100vh;
+  min-height: 100vh;
   padding: 0;
   margin: 0;
   background-image: url("/images/background/background_imagem.png");
@@ -20,7 +20,7 @@ body {
   flex-direction: column;
   justify-content: center;
   height: 80vh;
-  margin-left: 250px;
+  margin-left: 350px;
 }
 
 .center-container .conteudo_centralizado {
@@ -36,10 +36,10 @@ body {
 /* Mobile */
 @media (max-width: 480px) {
   body {
-    background-size: inherit;
+    background-size: cover;
   }
 
-  .center-container {
+  .center-container, .center-container img {
     margin-left: 20px;
   }
   .center-container .conteudo_centralizado {
@@ -57,7 +57,7 @@ body {
     background-size: auto;
   }
   .center-container {
-    margin-left: 20px;
+    margin-left: 50px;
   }
 
   .center-container .conteudo_centralizado {
@@ -74,8 +74,9 @@ body {
   body {
     background-size: cover;
   }
-  .center-container {
-    margin-left: 60px;
+
+ .center-container {
+    margin-left: 80px;
   }
 
   .center-container .conteudo_centralizado {
