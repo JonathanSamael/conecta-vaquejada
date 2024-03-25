@@ -37,18 +37,18 @@
                 id="navbarToggleExternalContent"
               >
                 <div class="navbar-nav">
-                  <a href="/vaquejadasParaAdms" class="nav-item nav-link mr-1"
+                  <a href="/vaquejadasParaAdms" class="nav-item nav-link"
                     >VAQUEJADAS</a
                   >
-                  <a href="#" class="nav-item nav-link mr-1">RESULTADOS</a>
+                  <a href="#" class="nav-item nav-link">RESULTADOS</a>
                   <a
                     href="/adicionar_vaquejada_no_bd"
-                    class="nav-item nav-link mr-1"
+                    class="nav-item nav-link"
                     >ADCIONAR VAQUEJADA</a
                   >
                   <a
                     href="/operations/deslogar"
-                    class="btn mr-1 botão"
+                    class="btn botão"
                     >DESLOGAR</a
                   >
                 </div>
@@ -87,11 +87,11 @@
                     <!-- Cards -->
                     <div class="col-8 cards">
 
-                         <div class="row">
+                         <div class="container-cards">
 
                               <% for (const vaquejada of vaquejadas) { %>
 
-                                   <div class="col-4">
+                                   <div class="col-5">
                                         <a href="/vaquejada-selecionada-adm?id=<%= vaquejada.id %>">
                                              <div class="card">
                                                   <img src="/images/cards/<%= vaquejada.foto %>" alt=""
@@ -104,7 +104,7 @@
 
 
                                         <!-- Adicionar vaquejada -->
-                                        <div class="col-4">
+                                        <div class="col-5">
                                              <a href="/adicionar-vaquejada">
                                                   <div class="card adicionar-vaquejada">
                                                        <div class="circulo">+</div>
