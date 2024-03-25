@@ -347,11 +347,9 @@ router.post('/login', upload.none(), async (req, res) => {
 
       const administrador = await knex.select().from('administradores').where('cpf', cpf).first();
 
-      if (!administrador) {
-        throw new Error('ADM não cadastrado!');
-      };
+      if (!administrador) { throw new Error('ADM não cadastrado!'); };
 
-      if (bcrypt.compareSync(senha, administrador.senha)) {
+      if (administrador.senha == senha) {
         req.session.logged_as = administrador.id;
         res.redirect('/adm');
       } else {
