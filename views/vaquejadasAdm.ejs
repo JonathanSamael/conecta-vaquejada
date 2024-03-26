@@ -20,27 +20,60 @@
 
 <body>
      <header>
-
           <!-- Navegação -->
-          <nav class="navbar navbar-expand-lg navbar-dark">
-               <a href="/adm" class="navbar-brand">
-                    <img src="/images/logos/conect_logo.png" alt="">
-               </a>
-
-               <!-- Navbar-links -->
-               <div class="collapse navbar-collapse justify-content-around">
-                    <div class="navbar-nav">
-                         <a href="/vaquejadasParaAdms" class="nav-item nav-link mr-5">VAQUEJADAS</a>
-                         <a href="#" class="nav-item nav-link mr-5">RESULTADOS</a>
-                         <a href="/adicionar_vaquejada_no_bd" class="nav-item nav-link mr-5">ADCIONAR VAQUEJADA</a>
-                         <a href="/operations/deslogar" class="btn mr-5 botão" style="width: 133px;">DESLOGAR</a>
-                    </div>
-               </div>
-               <!-- Fim do navbar links -->
-          </nav>
-          <!-- Fim da navegação -->
-
-     </header>
+          <div class="header-container">
+            <nav class="navbar navbar-expand-lg navbar-dark">
+              <a href="/" class="navbar-brand">
+                <img
+                  src="/images/logos/conect_logo.png"
+                  alt="logo conect vaquejada"
+                />
+              </a>
+    
+              <!-- Navbar-links -->
+    
+              <div
+                class="collapse navbar-collapse justify-content-between"
+                id="navbarToggleExternalContent"
+              >
+                <div class="navbar-nav">
+                  <a href="/vaquejadasParaAdms" class="nav-item nav-link"
+                    >VAQUEJADAS</a
+                  >
+                  <a href="#" class="nav-item nav-link">RESULTADOS</a>
+                  <a
+                    href="/adicionar_vaquejada_no_bd"
+                    class="nav-item nav-link"
+                    >ADCIONAR VAQUEJADA</a
+                  >
+                  <a
+                    href="/operations/deslogar"
+                    class="btn botão"
+                    >DESLOGAR</a
+                  >
+                </div>
+              </div>
+              <div class="pos-t-f">
+                <nav class="navbar navbar-dark">
+                  <button
+                    class="navbar-toggler"
+                    type="button"
+                    data-toggle="collapse"
+                    data-target="#navbarToggleExternalContent"
+                    aria-controls="navbarToggleExternalContent"
+                    aria-expanded="true"
+                    aria-label="Toggle navigation"
+                  >
+                    <span class="navbar-toggler-icon"></span>
+                  </button>
+                </nav>
+              </div>
+              <!-- </div> -->
+              <!-- Fim do navbar links -->
+            </nav>
+            <!-- Fim da navegação -->
+          </div>
+        </header>
 
      <section>
           <div class="container-fluid">
@@ -54,11 +87,11 @@
                     <!-- Cards -->
                     <div class="col-8 cards">
 
-                         <div class="row">
+                         <div class="container-cards">
 
                               <% for (const vaquejada of vaquejadas) { %>
 
-                                   <div class="col-4">
+                                   <div class="col-5">
                                         <a href="/vaquejada-selecionada-adm?id=<%= vaquejada.id %>">
                                              <div class="card">
                                                   <img src="/images/cards/<%= vaquejada.foto %>" alt=""
@@ -71,7 +104,7 @@
 
 
                                         <!-- Adicionar vaquejada -->
-                                        <div class="col-4">
+                                        <div class="col-5">
                                              <a href="/adicionar-vaquejada">
                                                   <div class="card adicionar-vaquejada">
                                                        <div class="circulo">+</div>

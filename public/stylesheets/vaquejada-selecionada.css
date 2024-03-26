@@ -4,33 +4,26 @@
      --cor-footer: #0671EF;
 }
 
+header {
+     height: 10vh;
+}
+
 body {
      background-color: var(--cor-background);
      display: flex;
      flex-direction: column;
-     min-height: 100vh;
+     height: 100vh;
 }
 
 #carousel {
      margin-bottom: 20px;
+     border-radius: 20px;
 }
-
-.texto {
-     color: var(--cor-texto);
-     font-size: 15px;
-     font-style: normal;
-     font-weight: 400;
-     line-height: normal;
-}
-
-.texto-h3 {
-     font-weight: 700;
-}
-
 
 .col-md-6 img {
      width: 540px;
      height: 150px;
+     border-radius: 20px;
 }
 
 .btn-categoria {
@@ -44,17 +37,6 @@ body {
 
 .texto-selecione {
      padding-top: 10px;
-}
-
-.direito-autoral {
-     width: 677px;
-     padding-top: 8px;
-     color: #FFF;
-     font-size: 12px;
-     font-style: normal;
-     font-weight: 400;
-     line-height: normal;
-     margin-left: 119px;
 }
 
 .img-banner {
@@ -72,6 +54,66 @@ section {
      flex: 1;
 }
 
-#footer {
-     flex-shrink: 0;
+/* Mobile */
+@media (max-width: 480px) {
+     .navbar-brand img {
+          width: 250px;
+     }
+
+     .navbar .navbar-dark {
+          left: 300px;
+     }
+
+     body {
+          max-width: max-content;
+     }
+
+     .col-md-6 img {
+          width: 360px;
+     }
+
+     .col-md-6:nth-child(2) {
+          display: flex;
+          justify-content: center;
+     }
+}
+
+/* Extra small devices */
+@media (min-width: 481px) and (max-width: 767px) {
+     .col-md-6 img {
+          width: 360px;
+     }
+     
+     .col-md-6:nth-child(2) {
+          display: flex;
+          justify-content: center;
+     }
+}
+
+/* Small tablets */
+@media (min-width: 768px) and (max-width: 991px) {
+     .col-md-6 img{
+          width: 360px;
+     }
+}
+
+/* Large tablets/laptops */
+@media (min-width: 992px) and (max-width: 1199px) {
+     
+     .navbar-dark .navbar-brand {
+          width: 300px;
+     }
+
+     .navbar {
+          font-size: 16px;
+          text-align: center;
+     }
+
+     .navbar-nav {
+          align-items: center;
+     }
+
+     .col-md-6 img {
+          width: 440px;
+     }
 }

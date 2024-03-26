@@ -6,18 +6,21 @@
   --box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
 }
 
-header {
+header .header-container {
+  height: 10vh;
   display: flex;
   justify-content: center;
   margin-bottom: 15px;
 }
 
 header .navbar {
-  /* margin: 0px 30px 0px 10px; */
-  /* width: 70%; */
   align-items: start;
   flex-wrap: nowrap;
   position: absolute;
+}
+
+.navbar .navbar-dark {
+  padding: 8px 0px;
 }
 
 body {
@@ -35,7 +38,7 @@ body {
 
 .texto {
   color: var(--cor-branco);
-  font-size: 15px;
+  font-size: 16px;
   font-style: normal;
   font-weight: 400;
   line-height: normal;
@@ -45,20 +48,22 @@ body {
   font-weight: 700;
 }
 
+.botão {
+  width: max-content;
+  height: 50px;
+}
+
 #footer {
   background-color: var(--cor-footer);
-  height: 60px;
+  height: 10vh;
 }
 
 .direito-autoral {
-  width: 677px;
   padding-top: 8px;
   color: #fff;
   font-size: 12px;
-  font-style: normal;
   font-weight: 400;
   line-height: normal;
-  margin-left: 119px;
 }
 
 .img-banner {
@@ -69,45 +74,99 @@ body {
 
 /* Mobile */
 @media (max-width: 480px) {
+  header {
+    justify-content: start;
+  }
+
+  header .header-container {
+    display: flex;
+    justify-content: start;
+    height: 7vh;
+    margin-bottom: 15px;
+    align-items: start;
+  }
+
   header .navbar-brand img {
-    width: 80%;
+    position: absolute;
+  }
+
+  .navbar .navbar-brand {
+    margin-right: 0px;
+  }
+
+  div .navbar-nav {
+    width: 145px;
+    padding-top: 7vh;
+    font-size: 14px;
+    align-items: end;
+    position: absolute;
+    left: 280px;
+    z-index: 99;
+  }
+
+  .navbar .navbar-dark {
+    position: absolute;
+    left: 370px;
+  }
+
+  .navbar-dark .navbar-nav .nav-link {
+    text-align: end;
+  }
+
+  .botão {
+    font-size: 14px;
+    height: 40px;
   }
 }
 
 /* Extra small devices */
 @media (min-width: 481px) and (max-width: 767px) {
   header .navbar-brand img {
-    width: 80%;
+    width: 250px;
+  }
+
+  div .navbar .navbar-expand-lg .navbar-dark {
+    justify-content: space-between;
   }
 
   div .navbar-nav {
+    padding-top: 7vh;
     font-size: 14px;
+    align-items: end;
+    position: absolute;
+    left: 230px;
+  }
+
+  .navbar-dark .navbar-nav .nav-link {
+    text-align: end;
+  }
+
+  .botão {
+    font-size: 14px;
+    height: 40px;
   }
 }
 
 /* Small tablets */
 @media (min-width: 768px) and (max-width: 991px) {
-  header .navbar-brand img {
-    width: 80%;
+  header .navbar-nav {
+    align-content: center;
   }
 
-  div.navbar-nav {
+  div .navbar-nav {
     padding-top: 7vh;
+    font-size: 14px;
+    align-items: end;
+    position: absolute;
+    left: 320px;
   }
 
-  .navbar .navbar-dark {
-    padding: 0;
+  .navbar-dark .navbar-nav .nav-link {
+    text-align: end;
   }
-}
 
-/* Large tablets/laptops */
-@media (min-width: 992px) and (max-width: 1199px) {
-}
-
-/* Desktops */
-@media (min-width: 1300px) and (max-width: 1919px) {
-}
-
-/* Extra large screens */
-@media (min-width: 1920px) {
+  .botão {
+    font-size: 14px;
+    height: 40px;
+  }
 }
