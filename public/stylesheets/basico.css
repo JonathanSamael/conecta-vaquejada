@@ -11,6 +11,7 @@ header .header-container {
   display: flex;
   justify-content: center;
   margin-bottom: 15px;
+  z-index: 9999;
 }
 
 header .navbar {
@@ -21,6 +22,8 @@ header .navbar {
 
 .navbar .navbar-dark {
   padding: 8px 0px;
+  z-index: 9999;
+
 }
 
 body {
@@ -74,20 +77,20 @@ body {
 
 /* Mobile */
 @media (max-width: 480px) {
-  header {
-    justify-content: start;
-  }
 
   header .header-container {
     display: flex;
-    justify-content: start;
+    justify-content: space-between;
+    /* justify-content: start; */
+    width: auto;
     height: 7vh;
-    margin-bottom: 15px;
+    margin: 0 10px 15px 10px;
     align-items: start;
   }
 
   header .navbar-brand img {
     position: absolute;
+    width: 280px;
   }
 
   .navbar .navbar-brand {

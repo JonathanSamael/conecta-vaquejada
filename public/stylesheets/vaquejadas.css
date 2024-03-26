@@ -97,6 +97,7 @@ a:hover {
   .container-fluid .row .container-cards {
     width: 400px;
     align-items: center;
+    flex-wrap: wrap;
   }
 
   .card, .adicionar-vaquejada {
@@ -131,6 +132,7 @@ a:hover {
     width: 460px;
     align-items: center;
     padding-top: 20px;
+    flex-wrap: wrap;
   }
 
   .card, .adicionar-vaquejada {
@@ -171,7 +173,8 @@ a:hover {
     height: 120px;
   }
 
-  .card, .adicionar-vaquejada {
+  .card, .adicionar-vaquejada, .col-5 {
+    box-sizing: border-box;
     width: 200px;
     height: 320px;
   }
