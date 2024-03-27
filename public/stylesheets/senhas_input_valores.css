@@ -1,6 +1,6 @@
 :root {
      --cor-borda: rgba(255, 255, 255, 0.2);
-     --cor-botão: rgba(255, 255, 255, 0.638);
+     --cor-botão: #0671ef;
 }
 
 .col-8 {
@@ -31,5 +31,6 @@
 
 .btnConfirmar {
      background-color: var(--cor-botão);
+     color: #fff;
      width: 100%;
 }
