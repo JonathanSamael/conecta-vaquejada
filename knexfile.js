@@ -5,6 +5,5 @@ module.exports = {
           user: process.env.USER,
           password: process.env.CLIENT_KEY,
           database: process.env.HOST_DB
-          
      }
 };

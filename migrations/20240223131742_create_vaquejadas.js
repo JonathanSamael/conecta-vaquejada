@@ -11,6 +11,8 @@ exports.up = function (knex) {
           table.string('status');
           table.string('descriçao', 1000);
           table.string('banner');
+          table.string('regras', 1000);
+          table.string('ordem', 1000);
      });
 };
 

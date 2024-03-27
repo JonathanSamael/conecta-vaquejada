@@ -31,9 +31,31 @@ router.post('/adicionar_vaquejadas', [requerAutenticacao], upload.fields([{ name
 
   try {
 
-    const { nomeVaquejada, nomeDono, status, descricaoVaquejada, nomeCategoria, numeroDeSenhasPorCategoria, numeroSenhasPessoa, precoPadraoPorcategoria } = req.body;
+    const {
+      nomeVaquejada,
+      nomeDono,
+      status,
+      descricaoVaquejada,
+      nomeCategoria,
+      numeroDeSenhasPorCategoria,
+      numeroSenhasPessoa,
+      precoPadraoPorcategoria,
+      regrasDaVaquejada,
+      ordemDaVaquejada
+    } = req.body;
 
-    if (!nomeVaquejada || !nomeDono || !status || !descricaoVaquejada || !nomeCategoria || !numeroDeSenhasPorCategoria || !numeroSenhasPessoa || !precoPadraoPorcategoria) {
+    if (
+      !nomeVaquejada
+      || !nomeDono
+      || !status
+      || !descricaoVaquejada
+      || !nomeCategoria
+      || !numeroDeSenhasPorCategoria
+      || !numeroSenhasPessoa
+      || !precoPadraoPorcategoria
+      || !regrasDaVaquejada
+      || !ordemDaVaquejada
+    ) {
       const error = new Error('Campos não adicionados ou incompletos!');
       error.code = 400;
       throw error;
@@ -46,7 +68,9 @@ router.post('/adicionar_vaquejadas', [requerAutenticacao], upload.fields([{ name
       status: status,
       foto: req.files['photo'][0].filename,
       descriçao: descricaoVaquejada,
-      banner: req.files['banner'][0].filename
+      banner: req.files['banner'][0].filename,
+      regras: regrasDaVaquejada,
+      ordem: ordemDaVaquejada
     });
 
     if (!vaquejadaID) {
@@ -75,7 +99,7 @@ router.post('/adicionar_vaquejadas', [requerAutenticacao], upload.fields([{ name
 
     }
 
-    // REDIRECIONA PARA A PAGINA DAS VAQUEJADAS;
+    // REDIRECIONA PARA A PAGINA DAS SENHAS;
     res.redirect(`/inputs-de-valores-das-senhas?id=${vaquejadaID}`);
 
   } catch (error) {
