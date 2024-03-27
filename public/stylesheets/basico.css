@@ -51,11 +51,6 @@ body {
   font-weight: 700;
 }
 
-.botão {
-  width: max-content;
-  height: 50px;
-}
-
 #footer {
   background-color: var(--cor-footer);
   height: 10vh;
@@ -138,6 +133,7 @@ body {
     align-items: end;
     position: absolute;
     left: 230px;
+    z-index: 99;
   }
 
   .navbar-dark .navbar-nav .nav-link {
@@ -162,6 +158,7 @@ body {
     align-items: end;
     position: absolute;
     left: 320px;
+    z-index: 99;
   }
 
   .navbar-dark .navbar-nav .nav-link {
