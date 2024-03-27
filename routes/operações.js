@@ -27,7 +27,10 @@ const storage = multer.diskStorage({
 const upload = multer({ storage: storage });
 
 // ADICIONA A VAQUEJA E SUAS CATEGORIAS NO BANCO DE DADOS;
-router.post('/adicionar_vaquejadas', [requerAutenticacao], upload.fields([{ name: 'photo', maxCount: 1 }, { name: 'banner', maxCount: 1 }]), async (req, res) => {
+const photo = {name: 'photo', maxCount: 1};
+const banner = {name: 'banner', maxCount: 1};
+
+router.post('/adicionar_vaquejadas', [requerAutenticacao], upload.fields([photo, banner]), async (req, res) => {
 
   try {
 
