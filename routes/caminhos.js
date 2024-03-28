@@ -93,7 +93,7 @@ router.get('/cadastro-de-compra', async (req, res) => {
   const senhas = await knex.table('senhas').where('id', req.query.senha);
   const categorias = await knex.table('categorias').where('id', senhas[0].categoria_id);
 
-  const categoria = categorias[0]
+  const categoria = categorias[0];
   const senha = senhas[0];
 
   const erro = req.query.erro;
@@ -163,7 +163,7 @@ router.get('/adicionar_vaquejada_no_bd', (req, res) => {
 // PAGINA QUE COMFIRMAMOS CADA SENHA DE CADA CATEGORIA DE UMA VAQUEJADA E PODEMOS FAZER ALTERAÇÕES EM SEUS VALORES;
 router.get('/inputs-de-valores-das-senhas', async (req, res) => {
   const vaquejada_id = req.query.id;
-  categorias = await knex.select().from('categorias').where('vaquejada_id', req.query.id);
+  const categorias = await knex.select().from('categorias').where('vaquejada_id', req.query.id);
 
   res.render('senhas_input_valores', { categorias, vaquejada_id });
 });
@@ -200,7 +200,6 @@ router.get('/voltarDasSenhas/:idVaquejada', (req, res) => {
   const id = req.params.idVaquejada;
   res.redirect(`/vaquejada-selecionada-adm?id=${id}`);
 });
-
 
 // PÁGINA DE IMPRESSÃO DE TODAS AS SENHAS CONFIRMADA
 router.get('/impressao/:idVaquejada', async (req, res) => {
