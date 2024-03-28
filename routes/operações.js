@@ -70,8 +70,8 @@ router.post('/adicionar_vaquejadas', [requerAutenticacao], upload.fields([photo,
       nome_dono: nomeDono,
       status: status,
       foto: req.files['photo'][0].filename,
-      descriçao: descricaoVaquejada,
       banner: req.files['banner'][0].filename,
+      descriçao: descricaoVaquejada,
       regras: regrasDaVaquejada,
       ordem: ordemDaVaquejada
     });
@@ -123,7 +123,6 @@ router.post('/adicionar_vaquejadas', [requerAutenticacao], upload.fields([photo,
 
 });
 
-
 // DEFINIR A VAQUEJADA COMO FINALIZADA;
 router.post('/finalizarVaquejada/:idVaquejada', [requerAutenticacao], upload.none(), async (req, res) => {
 
@@ -137,7 +136,6 @@ router.post('/finalizarVaquejada/:idVaquejada', [requerAutenticacao], upload.non
   }
 
 });
-
 
 // ADICIONA AS SENHAS NO BANCO DE DADOS;
 router.post('/adicionarSenhas', [requerAutenticacao], upload.none(), async (req, res) => {
@@ -214,7 +212,7 @@ router.post('/adicionarSenhas', [requerAutenticacao], upload.none(), async (req,
 
 });
 
-// FORMULARIO DE CADASTRO;
+// FORMULARIO DE CADASTRO DE COMPRA;
 router.post('/cadastroDeCompra', upload.none(), async (req, res) => {
 
   try {

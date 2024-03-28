@@ -12,8 +12,10 @@
 
      <!-- CSS Básico -->
      <link rel="stylesheet" href="/stylesheets/basico.css">
-     <!-- CSSn Cadastro -->
+     <!-- CSS Cadastro -->
      <link rel="stylesheet" href="/stylesheets/cadastro.css">
+     <!-- JS  Validação De Compra-->
+     <script src="/javascripts/validacaoDeCompra.js" defer></script>
 
      <title>
           <%= vaquejada.nome %>
@@ -69,8 +71,9 @@
                </div>
 
                <!-- Formulario -->
-               <form method="post" enctype="multipart/form-data"
+               <form method="post" enctype="multipart/form-data" id="formulario"
                     action="/operations/cadastroDeCompra?idSenha=<%= senha.id %>&idVaquejada=<%= vaquejada.id %>">
+
                     <div class="form-row">
 
                          <div class="form-group col-2">
@@ -88,8 +91,7 @@
                          </div>
 
                          <div class="form-group col-2">
-                              <label for="categoriaSenha" class="col col-form-label texto">CATEGORIA:</label>
-                              <input type="text" readonly
+                              <input type="hidden" readonly
                                    class="form-control-plaintext texto input-formulario form-fixos" id="categoriaSenha"
                                    value="<%= categoria.nome %>" name="categoriaSenha">
                          </div>
@@ -157,15 +159,14 @@
 
                          <div class="form-group col-md-4">
                               <label for="cpf" class="texto col">CPF:</label>
-                              <input type="text" pattern="(\d{3}.?\d{3}.?\d{3}-?\d{2})"
-                                   class="form-control input-formulario" id="cpf" name="cpf"
+                              <input type="text" class="form-control input-formulario" id="cpf" name="cpf"
                                    placeholder="000.000.000-00">
                          </div>
 
                          <div class="form-group col-md-5">
                               <label for="senha" class="texto col">SENHA DE ACESSO:</label>
                               <input type="password" class="form-control input-formulario" id="senha" name="senha"
-                                   placeholder="Minimo de 6 caracteres" minlength="6">
+                                   placeholder="Minimo de 6 caracteres">
                          </div>
 
                          <div class="col-md-2">
@@ -216,9 +217,6 @@
 
                </form>
                <!-- Fim do Formulario -->
-
-
-
 
           </div>
 
