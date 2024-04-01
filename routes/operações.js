@@ -27,8 +27,8 @@ const storage = multer.diskStorage({
 const upload = multer({ storage: storage });
 
 // ADICIONA A VAQUEJA E SUAS CATEGORIAS NO BANCO DE DADOS;
-const photo = {name: 'photo', maxCount: 1};
-const banner = {name: 'banner', maxCount: 1};
+const photo = { name: 'photo', maxCount: 1 };
+const banner = { name: 'banner', maxCount: 1 };
 
 router.post('/adicionar_vaquejadas', [requerAutenticacao], upload.fields([photo, banner]), async (req, res) => {
 
@@ -298,7 +298,6 @@ router.post('/cadastroDeCompra', upload.none(), async (req, res) => {
 
 // ALTERA O STATUS DA SENHA SELECIONADA;
 router.post('/alterarStatus/:idSenha/:idVaquejada', [requerAutenticacao], upload.none(), async (req, res) => {
-
   try {
     const statusDaSenha = req.body.statusDaSenha;
     await knex.table('senhas').where('id', req.params.idSenha).update({ status: statusDaSenha });
@@ -340,6 +339,17 @@ router.post('/solicitacao', async (req, res) => {
   }
 });
 
+// DELETA UMA SOLICITAÇÃO ESPECIFICA
+router.post("/apagarSolicitacao/:id", async (req, res) => {
+  const id = req.params.id;
+  try {
+    await knex('solicitacoes').where('id', id).del();
+    res.redirect("/solicitacoes");
+  } catch (error) {
+    res.redirect(`/solicitacoes?erro=${error}`);
+  }
+});
+
 // ROTAS DE AUTENTICAÇÃO:
 
 // ROTA DE LOGIN;
@@ -349,7 +359,7 @@ router.post('/login', upload.none(), async (req, res) => {
 
     const { cpf, senha, opcao_login } = req.body
 
-    if (!cpf, !senha) {
+    if (!cpf || !senha || !opcao_login) {
       throw new Error('Campos não informados!');
     }
 
@@ -358,35 +368,31 @@ router.post('/login', upload.none(), async (req, res) => {
       const comprador = await knex.select().from('compradores').where('cpf', cpf).first();
 
       if (!comprador) {
-        throw new Error('CPF não cadastrado!');
+        throw new Error('nenhum vaqueiro encontrado com esse cpf!');
       };
 
       if (bcrypt.compareSync(senha, comprador.senhaDeLogin)) {
         req.session.logged_as = null;
         res.redirect(`/loginVaqueiro/${comprador.id}`)
       } else {
-        throw new Error('Senha incorreta!');
+        throw new Error('A senha do vaqueiro está incorreta?!');
       };
 
     } else if (opcao_login == 'administrador') {
 
       const administrador = await knex.select().from('administradores').where('cpf', cpf).first();
 
-      if (!administrador) { throw new Error('ADM não cadastrado!'); };
+      if (!administrador) { throw new Error('Administrador não cadastrado!'); };
 
       if (administrador.senha == senha) {
         req.session.logged_as = administrador.id;
         res.redirect('/adm');
       } else {
         req.session.logged_as = null;
-        throw new Error('Senha incorreta!');
+        throw new Error('Senha do administrador está incorreta?!');
       }
 
-    } else {
-      req.session.logged_as = null;
-      throw new Error('Campo de seleção não selecionado');
     }
-
   } catch (error) {
     res.redirect(`/login?erroDeLogin=${error}`);
   }

@@ -8,7 +8,6 @@ const requerAutenticacao = require('../middlewares/requerAutenticacao');
 var knexConfig = require('../knexfile');
 var knex = require('knex')(knexConfig);
 
-
 // PAGINA INDEX;
 router.get('/', (req, res, next) => {
   res.render('index');
@@ -47,7 +46,6 @@ router.get('/vaquejada-selecionada', async (req, res) => {
   res.render('vaquejada-selecionada', { vaquejada });
 });
 
-
 // PAGINA QUE SELECIONA CATEGORIA E MOSTRA SENHAS DISPONIVEIS, PASSANDO VAQUEJADA SELECIONADA PELO ID;
 router.get('/selecionar-categoria-senha', async (req, res) => {
   const vaquejada = await knex.table('vaquejadas').where('id', req.query.idVaquejada).first();
@@ -85,7 +83,6 @@ router.get('/renderizar-senhas', (req, res) => {
   const idCategoria = req.query.idCategoria;
   res.redirect(`/selecionar-categoria-senha?idVaquejada=${idVaquejada}&idCategoria=${idCategoria}`);
 });
-
 
 // FORMULARIO DE COMPRA;
 router.get('/cadastro-de-compra', async (req, res) => {
@@ -272,7 +269,12 @@ router.get('/impressao/:idVaquejada', async (req, res) => {
 // PÁGINA DE SÓLICITAÇÕES:
 router.get("/solicitacoes", async (req, res) => {
   const solicitacoes = await knex.select().from('solicitacoes').orderBy('dataDasolicitacao', 'desc');
-  res.render('solicitacoes.ejs', { solicitacoes });
+  solicitacoes.forEach(solicitacao => {
+    solicitacao.dataDasolicitacao = solicitacao.dataDasolicitacao.toLocaleDateString();
+  });
+  let erro;
+  if (req.query.erro) { erro = req.query.erro }
+  res.render('solicitacoes', { solicitacoes, erro });
 });
 
 module.exports = router;
