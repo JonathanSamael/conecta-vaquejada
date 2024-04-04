@@ -4,12 +4,11 @@
   --cor-botao: #0671ef;
 }
 
-.row {
-  justify-content: center;
+.container-fluid {
+  padding-left: 150px;
 }
 
 .inputs-formularios {
-  height: 37px;
   font-size: 17px;
   background: var(--cor-principal) !important;
   box-shadow: var(--cor-principal);
@@ -63,14 +62,6 @@ form {
   margin-bottom: 100px;
 }
 
-.col-7 {
-  margin-top: 50px;
-  max-width: 80%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
 .inputs-informações-categorias {
   width: 150px;
 }
@@ -80,8 +71,10 @@ form {
   header .navbar-brand img {
     width: 280px;
   }
+
   .container-fluid {
-    justify-content: start;
+    margin-top: 50px;
+    padding-left: 60px;
   }
 
   .container-fluid .row {
@@ -117,6 +110,10 @@ form {
     justify-content: center;
   }
 
+  .container-fluid {
+    padding-left: 100px;
+  }
+
   #files {
     display: flex;
     flex-direction: column;
@@ -134,15 +131,10 @@ form {
 
 /* Small tablets */
 @media (min-width: 768px) and (max-width: 991px) {
-  .container-fluid {
-    justify-content: start;
-    padding-left: 150px;
-  }
 
   .container-fluid .row {
     flex-direction: column;
     align-content: center;
-    justify-content: center;
   }
 
   .row {

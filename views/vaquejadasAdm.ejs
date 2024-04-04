@@ -37,18 +37,18 @@
                 id="navbarToggleExternalContent"
               >
                 <div class="navbar-nav">
-                  <a href="/vaquejadasParaAdms" class="nav-item nav-link"
+                  <a href="/vaquejadasParaAdms" class="nav-item nav-link mr-1"
                     >VAQUEJADAS</a
                   >
-                  <a href="#" class="nav-item nav-link">RESULTADOS</a>
+                  <a href="#" class="nav-item nav-link mr-1">RESULTADOS</a>
                   <a
                     href="/adicionar_vaquejada_no_bd"
-                    class="nav-item nav-link"
+                    class="nav-item nav-link mr-1"
                     >ADCIONAR VAQUEJADA</a
                   >
                   <a
                     href="/operations/deslogar"
-                    class="btn botão"
+                    class="btn botão mr-1"
                     >DESLOGAR</a
                   >
                 </div>
@@ -80,18 +80,18 @@
                <div class="row">
 
                     <!-- coluna da imagem -->
-                    <div class="col-4">
+                    <div >
                          <img src="/images/textos/texto.png" alt="" class="texto-principal">
                     </div>
 
                     <!-- Cards -->
-                    <div class="col-8 cards">
+                    <div class="row cards">
 
-                         <div class="container-cards">
+                         
 
                               <% for (const vaquejada of vaquejadas) { %>
 
-                                   <div class="col-5">
+                                   <div class="banner-card">
                                         <a href="/vaquejada-selecionada-adm?id=<%= vaquejada.id %>">
                                              <div class="card">
                                                   <img src="/images/cards/<%= vaquejada.foto %>" alt=""
@@ -104,7 +104,7 @@
 
 
                                         <!-- Adicionar vaquejada -->
-                                        <div class="col-5">
+                                        <div class="add-card">
                                              <a href="/adicionar-vaquejada">
                                                   <div class="card adicionar-vaquejada">
                                                        <div class="circulo">+</div>
@@ -115,9 +115,6 @@
                                              </a>
                                         </div>
                                         <!-- Adicionar vaquejada  -->
-
-
-                         </div>
 
                     </div>
                </div>
