@@ -120,19 +120,22 @@ router.get('/loginVaqueiro/:idComprador', async (req, res) => {
   const comprador = await knex.select().from('compradores').where('id', idComprador).first();
 
   var idSenhas = [];
-  senhasDoComprador.forEach((senhas) => { idSenhas.push(senhas.idSenha) });
+  senhasDoComprador.forEach((senha) => {    idSenhas.push(senha.idSenha)  });
 
   var senhas = [];
   for (let id of idSenhas) {
     let senha = await knex.select().from('senhas').where('id', id).first();
 
-    let nomeDaCategoria = await knex.select('nome').from('categorias').where('id', senha.categoria_id).first();
-    senha.categoria = nomeDaCategoria.nome;
-
-    let nomeVaquejada = await knex.select('nome').from('vaquejadas').where('id', senha.vaqueja_id).first();
-    senha.vaquejada = nomeVaquejada.nome;
-
-    senhas.push(senha);
+    if (!(senha.status == "DISPONIVEL")) {
+      let nomeDaCategoria = await knex.select('nome').from('categorias').where('id', senha.categoria_id).first();
+      senha.categoria = nomeDaCategoria.nome;
+  
+      let nomeVaquejada = await knex.select('nome').from('vaquejadas').where('id', senha.vaqueja_id).first();
+      senha.vaquejada = nomeVaquejada.nome;
+  
+      senhas.push(senha);
+    }
+    
   };
 
   res.render('senhasdovaqueiro', { comprador, senhasDoComprador, senhas });
