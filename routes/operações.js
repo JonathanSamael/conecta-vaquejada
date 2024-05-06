@@ -30,7 +30,8 @@ const upload = multer({ storage: storage });
 const photo = { name: 'photo', maxCount: 1 };
 const banner = { name: 'banner', maxCount: 1 };
 
-router.post('/adicionar_vaquejadas', [requerAutenticacao], upload.fields([photo, banner]), async (req, res) => {
+// router.post('/adicionar_vaquejadas', [requerAutenticacao], upload.fields([photo, banner]), async (req, res) => {
+router.post('/adicionar_vaquejadas', upload.fields([photo, banner]), async (req, res) => {
 
   try {
 
@@ -124,7 +125,8 @@ router.post('/adicionar_vaquejadas', [requerAutenticacao], upload.fields([photo,
 });
 
 // DEFINIR A VAQUEJADA COMO FINALIZADA;
-router.post('/finalizarVaquejada/:idVaquejada', [requerAutenticacao], upload.none(), async (req, res) => {
+// router.post('/finalizarVaquejada/:idVaquejada', [requerAutenticacao], upload.none(), async (req, res) => {
+router.post('/finalizarVaquejada/:idVaquejada', upload.none(), async (req, res) => {
 
   try {
     await knex.from('vaquejadas').where('id', req.params.idVaquejada).update({ status: 'finalizado' });
@@ -138,7 +140,8 @@ router.post('/finalizarVaquejada/:idVaquejada', [requerAutenticacao], upload.non
 });
 
 // ADICIONA AS SENHAS NO BANCO DE DADOS;
-router.post('/adicionarSenhas', [requerAutenticacao], upload.none(), async (req, res) => {
+// router.post('/adicionarSenhas', [requerAutenticacao], upload.none(), async (req, res) => {
+router.post('/adicionarSenhas', upload.none(), async (req, res) => {
 
   try {
 
@@ -297,7 +300,8 @@ router.post('/cadastroDeCompra', upload.none(), async (req, res) => {
 });
 
 // ALTERA O STATUS DA SENHA SELECIONADA;
-router.post('/alterarStatus/:idSenha/:idVaquejada', [requerAutenticacao], upload.none(), async (req, res) => {
+// router.post('/alterarStatus/:idSenha/:idVaquejada', [requerAutenticacao], upload.none(), async (req, res) => {
+router.post('/alterarStatus/:idSenha/:idVaquejada', upload.none(), async (req, res) => {
   try {
     const statusDaSenha = req.body.statusDaSenha;
     await knex.table('senhas').where('id', req.params.idSenha).update({ status: statusDaSenha });
