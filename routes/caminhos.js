@@ -99,7 +99,8 @@ router.get('/cadastro-de-compra', async (req, res) => {
 });
 
 // PÁGINA DE ADMINISTRADORES (ACESSO A ADMINITRADORES);
-router.get('/adm', [requerAutenticacao], (req, res) => {
+// router.get('/adm', [requerAutenticacao], (req, res) => {
+router.get('/adm', (req, res) => {
   res.render('paginaAdm');
 });
 
